@@ -30,8 +30,9 @@ public class JobData {
         loadData();
 
         ArrayList<String> values = new ArrayList<>();
+        ArrayList<HashMap<String, String>> copyAllJobs = new ArrayList<>(allJobs);
 
-        for (HashMap<String, String> row : allJobs) {
+        for (HashMap<String, String> row : copyAllJobs) {
             String aValue = row.get(field);
 
             if (!values.contains(aValue)) {
@@ -46,8 +47,8 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
-
-        return allJobs;
+        ArrayList<HashMap<String, String>> copyAllJobs = new ArrayList<>(allJobs);
+        return copyAllJobs;
     }
 
     /**
@@ -66,8 +67,8 @@ public class JobData {
         loadData();
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-
-        for (HashMap<String, String> row : allJobs) {
+        ArrayList<HashMap<String, String>> copyAllJobs = new ArrayList<>(allJobs);
+        for (HashMap<String, String> row : copyAllJobs) {
 
             String aValue = row.get(column).toLowerCase();
 
@@ -90,8 +91,8 @@ public class JobData {
         loadData();
         // TODO - implement this method
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-
-        for (HashMap<String, String> row : allJobs) {
+        ArrayList<HashMap<String, String>> copyAllJobs = new ArrayList<>(allJobs);
+        for (HashMap<String, String> row : copyAllJobs) {
             for (Map.Entry<String, String> column : row.entrySet()) {
                 String aValue = column.getValue().toLowerCase();
                 if (aValue.contains(value.toLowerCase()) && !jobs.contains(row)) {
